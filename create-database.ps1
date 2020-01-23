@@ -1,0 +1,1 @@
+docker container exec -it example-sql /opt/mssql-tools/bin/sqlcmd -U sa -P 555331qQ! -i initial.sql
