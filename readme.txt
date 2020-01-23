@@ -7,16 +7,6 @@ $env:FLASK_ENV='development'
 
 python -m flask run
 
-
-
-
-
-
-
-
-
-
-
 2. Dockerfile - create (rebuild) image:
 docker build --no-cache "C:\Users\azarin.sa\Desktop\winter scool\example\ApiEndpoint" -t example-pyapi
 
@@ -26,21 +16,9 @@ docker run -p 15000:5000 --network=example-ntw --name example-pyapi example-pyap
 ------------------запрос к хосту внутри контейнера:
 docker exec -it example-pyapi curl localhost:5000 
 
-
-
-
-
 ------------------удалить контейнер
 docker container rm -f {container id}
 docker rm -f  (docker ps -q -a)
-
-
-
-
-
-
-
-
 
 
 ----------------------------запускаем RabbitMQ (UI - localhost:15005)
@@ -54,9 +32,6 @@ docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=555331qQ!' -p 15433:1433 --network
 -----------------------------инициализируем БД
 docker container exec -it example-sql /opt/mssql-tools/bin/sqlcmd -U sa -P 555331qQ! -i initial.sql
 /opt/mssql-tools/bin/sqlcmd -U sa -P 555331qQ! -i initial.sql
-
-
-
 
 
 --------------------------запуск сервиса
