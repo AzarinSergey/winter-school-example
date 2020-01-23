@@ -1,0 +1,64 @@
+# version: '3.5'
+
+# services:
+  # team-api-test:
+    # entrypoint: ["dotnet","Api.Test.dll"]
+    # image: ${DOCKER_REGISTRY-}apitest
+    # container_name: team-api-test 
+    # ports: 
+      # - "17003:80"
+    # build:
+      # context: .
+      # dockerfile: Services/Api/Api.Test/Dockerfile
+    # links:
+      # - "team-clt-service:clt-service"
+      # - "team-sts-service:sts-service"
+
+  # team-clt-service: 
+    # image: ${DOCKER_REGISTRY-}clt 
+    # container_name: team-clt-service
+    # ports:
+      # - "17001:16001"
+    # build: 
+      # context: .
+      # dockerfile: Services/Clt/Clt.Implementation/Dockerfile
+    # links:
+      # - "team-sts-service:sts-service"
+       
+  # team-sts-service:
+    # image: ${DOCKER_REGISTRY-}sts 
+    # container_name: team-sts-service 
+    # ports: 
+      # - "17000:80"
+    # build: 
+      # context: . 
+      # dockerfile: Services/Sts/Sts.Implementation/Dockerfile
+
+#-----------------------------------------------OVERRIDE
+# version: '3.5'
+
+# services:
+  # team-api-test:
+    # environment:
+      # - ASPNETCORE_ENVIRONMENT=Development
+    # entrypoint: ["dotnet", "Api.Test.dll"]
+    # networks:
+    # - team-network
+
+  # team-clt-service:
+    # environment:
+      # - ASPNETCORE_ENVIRONMENT=Development
+    # networks:
+    # - team-network
+
+  # team-sts-service:
+    # environment:
+      # - ASPNETCORE_ENVIRONMENT=Development 
+    # networks:
+    # - team-network
+
+# networks:
+  # team-network:
+    # name: team-network
+    # driver: bridge
+
