@@ -14,14 +14,13 @@ services:
      
 
   example-svc: 
-    image: ${DOCKER_REGISTRY-}example-svc
+    image: example-svc
     container_name: example-svc
     ports:
       - "15008:15008"
     build: 
       context: .
       dockerfile: ExampleService/Svc.Implementation/Dockerfile
-    entrypoint: ["dotnet", "Svc.Implementation.dll"]
     networks:
       - example-ntw
      

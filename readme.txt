@@ -16,7 +16,7 @@ docker run -p 15000:5000 --network=example-ntw --name example-pyapi example-pyap
 ------------------запрос к хосту внутри контейнера:
 docker exec -it example-pyapi curl localhost:5000 
 
-------------------удалить контейнер
+------------------удалить контейнерcat 
 docker container rm -f {container id}
 docker rm -f  (docker ps -q -a)
 
@@ -38,6 +38,11 @@ docker container exec -it example-sql /opt/mssql-tools/bin/sqlcmd -U sa -P 55533
 docker build --no-cache "C:\Users\azarin.sa\Desktop\winter scool\example\ExampleService\Svc.Implementation" -t example-svc
 
 docker container run -p 15008:15008 --network=example-ntw --name example-svc example-svc
+
+
+---------------######################-------------
+
+cat etc/*release
 
 
 
