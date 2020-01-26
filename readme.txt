@@ -35,6 +35,8 @@ docker container exec -it example-sql /opt/mssql-tools/bin/sqlcmd -U sa -P 55533
 
 
 --------------------------запуск сервиса
+dotnet build ".\ExampleService\Svc.Implementation\Svc.Implementation.csproj"
+
 docker build --no-cache "C:\Users\azarin.sa\Desktop\winter scool\example\ExampleService\Svc.Implementation" -t example-svc
 
 docker container run -p 15008:15008 --network=example-ntw --name example-svc example-svc
