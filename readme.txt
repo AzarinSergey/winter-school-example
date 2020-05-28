@@ -20,6 +20,10 @@ docker exec -it example-pyapi curl localhost:5000
 docker container rm -f {container id}
 docker rm -f  (docker ps -q -a)
 
+---------------------------------IMAGE LABEL
+docker image inspect --format='{{.Config.Labels}}' lcg-research-api-gw/0.0.1 
+docker images --filter="label=app.name=research"
+
 
 ----------------------------запускаем RabbitMQ (UI - localhost:15005)
 docker run -d -p 15005:15672 -p 15006:5672 --network=example-ntw --name example-rabbit -e RABBITMQ_DEFAULT_VHOST=example_vhost rabbitmq:3-management
